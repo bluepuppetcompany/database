@@ -8,3 +8,11 @@ services:
       - .database-message-store:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  view_data:
+    image: postgres:12.4
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - .database-view-data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
